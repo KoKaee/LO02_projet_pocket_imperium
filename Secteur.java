@@ -1,14 +1,27 @@
+import java.util.HashMap;
+import java.util.Map;
+
 public class Secteur {
 
-	private int numero;
-	private Hex[] hex;
+	private int id;
+	private Map<String, Hex> hex; 
+
+	 public Secteur(int id) {
+        this.id = id;
+        this.hex = new HashMap<>();
+    }
 	
-	public Secteur(int numero, Hex[] hex) {
-		this.numero = numero;
-		this.hex = hex;
+	//Guetteurs
+	public int getId() {
+		return id;
 	}
-	
-	public int getNumero() {
-		return numero;
+
+	public Hex getHex(String hexId) {
+        return hex.get(hexId);
+    }
+
+	public void ajouterHex(int niveau, int numeroSystem, int position) {
+		Hex hex = new Hex(niveau, numeroSystem);
+		this.hex.put(hex.getNumeroSystem(), hex);
 	}
 }

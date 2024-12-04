@@ -14,7 +14,7 @@ public class Flotte {
 		this.vaisseau.add(nouveauxVaisseau);
 	}
 	// pas sûr dutout  je pense que l'on doit l'enlever
-	public void enleverVaisseau(int numeroVaisseauSupprime) throws VaisseauInexistantException{
+	public void enleverVaisseau(int numeroVaisseauSupprime) throws MauvaiseEntreeException{
 		Iterator<Vaisseau> iterator = this.vaisseau.iterator();
 		boolean vaisseeauTrouve = false;
 		
@@ -28,7 +28,7 @@ public class Flotte {
 		}
 		
 		if (!vaisseeauTrouve)
-			throw new VaisseauInexistantException("Le vaisseau avec le numéro " + numeroVaisseauSupprime + " n'existe pas.");
+			throw new MauvaiseEntreeException("Le vaisseau avec le numéro " + numeroVaisseauSupprime + " n'existe pas.");
 	}
 	
 	public void deplacer(Hex positionFinal) {
